@@ -1,5 +1,7 @@
 body{
-    background-color: blue;
+  background: #30E8BF;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #FF8235, #30E8BF);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #FF8235, #30E8BF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */  
 }
 header{
     color: white;
@@ -44,19 +46,28 @@ h6{
   border-spacing: 5px;
 }
 .all-details{
-    margin: 2cm 0cm 0cm 6.2cm;
+    color: black;
+    margin: 2cm 0cm 0cm 4cm;
+    background-color: white;
+    border-radius: 30px;
+    width: 100%;
 }
 .prod-image img{
-    height: auto;
-    width: auto;
+    margin-left: 65px;
+    height: 4cm;
     border-radius: 30px;
 }
 .text-details{
-    margin: 0cm 4cm 0cm 2cm;
+    text-align: center;
+    color: black;
+    margin: 0cm 2cm 0cm 2cm;
 }
 .text-details h3{
     font-size: larger;
 }
 .text-details h4{
     font-size: medium;
+}
+header h1{
+    padding-top: -100px;
 }

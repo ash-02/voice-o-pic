@@ -45,14 +45,9 @@
     ?> -->
 
     <header>
-        <div style="display: inline-flex;">
-            <img src="mainicon.png">
-            <h1>Frenzy Farming</h1>
-        </div>
-        <div class="cart">
-            <a href="../cart.php">
-                <img src="cart-symbol.png"><sup><?php echo $countcart?></sup>
-            </a>
+        <div class="mainicon">
+            <img src="../static/ear.png" style="height: 2cm;">
+            <h1 style="margin-top: 25px; margin-left: 0%;left: 150px;">Voice-O-Pic</h1>
         </div>
     </header>
 
@@ -61,50 +56,62 @@
             while($row=mysqli_fetch_assoc($query_run))
             {
     ?> -->
-    {%for prod in products%}
-    <div class="all-details" style="display: inline-flex; color:white;">
-        <div class="prod-image">
-            <img src="{{prod['image']}}">
+    <div class="everything">
+        <div class="filters">
+            <div class="price-filters">
+                <div class="">
+                    {%for minp in min%}
+                    <input type="number" value="{{minp['price']}}" placeholder="{{minp['price']}}">
+                    {%endfor%}
+                </div>
+                <div class="">
+                    {%for minp in min%}
+                    <input type="number" value="{{minp['price']}}" placeholder="{{minp['price']}}">
+                    {%endfor%}
+                </div>
+            </div>
         </div>
-        <div class="text-details">
-            <h3>
-                {{prod['cname']}}
-            <!-- <?php echo $row['company_name'] ?> -->
-            </h3>
-            <br>
-            <h2>
-                {{prod['pname']}}
-                <!-- <?php echo $row['name'] ?> -->
-            </h2>
-            <br>
-            <h2>
-                {{prod['price']}}
-                <!-- PRICE: ₹ <?php echo $row['price'] ?> -->
-            </h2>
-            <br>
-            <br>
-            <button class="btn btn-warning my-3" name="add">Add to Cart  <i class="fas fa-shopping-cart"></i></button>
-            <br>
-            <br>
-            <h4>
-                <ul>
-                    <!-- <?php 
-                        $desc_points = explode(".",$row['description']);
-                        foreach ($desc_points as $points) {
-                           ?>
-                           <li>
-                               <?php
-                                    echo $points
+        {%for prod in products%}
+        <div class="" style="display: inline-flex;">
+            <div class="all-details" style="color:white;">
+                <div class="prod-image">
+                    <img src="../static/img.jpg"><br>
+                </div>
+                <div class="text-details">
+                    <h3>
+                        {{prod['cname']}}
+                    <!-- <?php echo $row['company_name'] ?> -->
+                    </h3>
+                    <h2>
+                        {{prod['pname']}}
+                        <!-- <?php echo $row['name'] ?> -->
+                    </h2>
+                    <h2>
+                        ₹ {{prod['price']}}
+                        <!-- PRICE: ₹ <?php echo $row['price'] ?> -->
+                    </h2>
+                    <button class="btn btn-warning my-3" name="add">Add to Cart  <i class="fas fa-shopping-cart"></i></button>
+                    <h4>
+                        <ul>
+                            <!-- <?php 
+                                $desc_points = explode(".",$row['description']);
+                                foreach ($desc_points as $points) {
                                 ?>
-                           </li>
-                           <?php
-                        }
-                    ?> -->
-                </ul>
-            </h4>
+                                <li>
+                                    <?php
+                                            echo $points
+                                        ?>
+                                </li>
+                                <?php
+                                }
+                            ?> -->
+                        </ul>
+                    </h4>
+                </div>
+            </div>
         </div>
+        {%endfor%}
     </div>
-    {%endfor%}
 
     <!-- <?php
             }

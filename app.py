@@ -136,7 +136,7 @@ def addprod():
 def prodshow():
     records=db.products
     products=records.find()
-    return render_template('products.html',products=products)
+    return render_template('products.html',products=records.find(),min=products.sort("price", -1).limit(1),max=products.sort("price", 1).limit(1))
 
 if __name__ == '__main__':
     app.run(debug=True, use_reloader=False)
