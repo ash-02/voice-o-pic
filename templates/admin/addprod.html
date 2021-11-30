@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="../../static/admin_addprod.css">
+
+    <!-- <script src="script.js"></script> -->
+
+    <!-- <script>
+        function pidd(){
+            var a = document.getElementById("pid").value;
+            var pat = /[A-Z]{3}[-][1-9]{6}/;
+            if(a.match(pat)){
+                alert("valid product id");
+            }
+            else{
+                alert("invalid product id")
+            }
+        }
+        function totalprice(){
+            var q = document.getElementById("quan");
+            var qval = q.options[q.selectedIndex].value;
+            var p = document.getElementById("price").value;
+            console.log(qval);
+            console.log(p);
+            var tot = p * qval;
+            var result = document.getElementById("totalp");
+            result.setAttribute('value',tot);
+            console.log(tot);
+        }
+        function pricevalidation(){
+            var p = document.getElementById("price").value;
+            if((p<100)||(p>9999)){
+                alert("Price should be between 100 and 9999");
+            }
+            else{
+                totalprice();
+            }
+        }
+        function datevalidation(){
+            var pattern =/^([0-9]{2})[-]([0-9]{2})[-]([0-9]{4})$/;
+            var d = document.getElementById("purchasedate").value;
+            if(d.match(pattern)){
+
+            }
+            else{
+                alert("invalid date");
+            }
+        }
+        function mobilevalidation(){
+            var mobpatt = /[7-9]{1}[0-9]{9}/;
+            var m = document.getElementById("mobilenum").value;
+            if(m.match(mobpatt)){
+
+            }
+            else{
+                alert("invalid mobile number");
+            }
+        }
+        function emailvalidation(){
+            var empatt = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+            var e = document.getElementById("email").value;
+            if(e.match(empatt)){
+
+            }
+            else{
+                alert("invalid email");
+            }
+        }
+    </script> -->
+
+</head>
+<body>
+    <header style="text-align: center;">
+        <h1>
+            add product
+        </h1>
+    </header>
+    <div style="text-align: center; height: auto ;width: 15cm;margin: auto;background: rgba( 255, 255, 255, 0.15 );
+    box-shadow: 0 8px 32px 0 rgba(241, 241, 248, 0.767);
+    backdrop-filter: blur( 4.0px );
+    -webkit-backdrop-filter: blur( 4.0px );
+    border-radius: 40px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );">
+        <form method="post">
+            <div class="input-container">
+                <input type="text" id="pname" name="pname" maxlength="50"><label>Product NAME</label>
+            </div>
+            <div class="input-container">
+                <input type="text" id="cname" name="cname" maxlength="50"><label>Company NAME</label>
+            </div>
+            <div class="input-container">
+                <input type="number" id="price" name="price" maxlength="50"><label>Price</label>
+            </div>
+            <div class="input-container">
+                <input type="text" id="description" name="description" maxlength="100"><label>Description</label>
+            </div>
+            <div class="input-container">
+                <input type="file" id="prodimage" name="prodimage" maxlength="50"><label>Product Image</label>
+            </div>
+            <div>
+                <button type="submit" name="Submit" id="submit" class="regi" formaction="{{url_for('addprod')}}">SUBMIT</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

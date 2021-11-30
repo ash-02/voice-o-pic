@@ -1,0 +1,189 @@
+@import url("https://fonts.googleapis.com/css?family=Righteous");
+*{
+    box-sizing: border-box;
+}
+body{
+    background-color:blue;
+    font-family: righteous;
+    margin: 0px 0px 100px 0px;
+    background-image: url('bg1.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+}
+header{
+    margin: 40px 0px 40px 0px;
+    }
+input{
+    height: 1cm;
+    margin-top: 0.5cm;
+}
+
+h2{
+    text-align: center;
+    margin-top: 0cm;
+}
+form{
+    align-items: center;
+    justify-content: center;
+    margin: 40px 60px 40px 60px;
+}
+.regform{
+    display: flex;
+    flex-direction: column;
+    border-radius: 40px;
+    padding: 50px 40px;
+    width: 15cm;
+    border: 10px solid #66CDAA;
+}
+select {
+    margin-top: 30px;
+    margin-bottom: 1em;
+    padding: .25em;
+    border: 0;
+    margin-right: 50px;
+    border-bottom: 1px solid currentcolor;
+    width: 100%;
+    font-weight: bold;
+    letter-spacing: .15em;
+    border-radius: 0;
+}
+    select:focus, select:active {
+    outline: 0;
+    border-bottom-color: red;
+    }
+select option{
+    font-weight: lighter;
+}
+.input-container{
+    position:relative;
+    margin-top: 10px;
+    margin-bottom:10px;
+}
+.input-container label{
+    margin-top: 0cm;
+    position:absolute;
+    top:30px;
+    left:0px;
+    font-size: 20px;
+    color:#66CDAA;
+    padding-bottom: 25px;
+    pointer-events:none;
+    transition: all 0.5s ease-in-out;
+}
+.input-container input{ 
+    border:0;
+    border-bottom:1px solid #555;  
+    background:transparent;
+    width:100%;
+    padding:8px 0 5px 0;
+    font-size:16px;
+    color:black;
+}
+.input-container input:focus,.input-container select:focus{ 
+    border:none;	
+    outline:none;
+    border-bottom:2px solid #e74c3c;
+}
+.input-container input:focus ~ label,
+.input-container input:valid ~ label,
+.input-container select:focus ~ label
+.input-container select:valid ~ label{
+    top:0px;
+    font-size:20px;
+    color: white;
+}
+.input-containe{
+    position:relative;
+    margin-top: 10px;
+    margin-bottom:10px;
+}
+.input-containe label{
+    margin-top: 0cm;
+    position:absolute;
+    top:0px;
+    left:0px;
+    font-size: 20px;
+    color:#66CDAA;
+    padding-bottom: 25px;
+    pointer-events:none;
+    transition: all 0.5s ease-in-out;
+}
+.input-containe input{ 
+    border:0;
+    border-bottom:1px solid #555;  
+    background:transparent;
+    width:100%;
+    padding:8px 0 5px 0;
+    font-size:16px;
+    color:black;
+}
+.input-containe input:focus ~ label,
+.input-containe input:valid ~ label,
+.input-containe select:focus ~ label
+.input-containe select:valid ~ label{
+    top:0px;
+    font-size:20px;
+    color: white;
+}
+.regi {
+    margin-top: 1cm;
+    width: 4cm;
+    display: inline-block;
+    padding: 0.75rem 1.25rem;
+    border-radius: 10rem;
+    color: #66CDAA;
+    text-transform: uppercase;
+    font-size:medium;
+    font-weight:bolder;
+    letter-spacing: 0.15rem;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+.regi:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    border-radius: 10rem;
+    z-index: -2;
+}
+.regi:before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background-color: #66CDAA;
+    transition: all 0.3s;
+    border-radius: 10rem;
+    z-index: -1;
+}
+.regi:hover {
+    color: #fff;
+}
+.regi:hover:before {
+    width: 100%;
+}
+.text{
+    color: #66CDAA;
+}
+.upbutton {
+    background: none;
+    border-color: #66CDAA;
+    padding: 0.6em 2.3em;
+    cursor: pointer;
+    font-size: 1em;
+    color: #ffffff;
+    background-image: linear-gradient(45deg, transparent 50%, #66CDAA 50%);
+    background-position: 25%;
+    background-size: 400%;
+    -webkit-transition: background 500ms ease-in-out, color 500ms ease-in-out;
+    transition: background 500ms ease-in-out, color 500ms ease-in-out;
+}

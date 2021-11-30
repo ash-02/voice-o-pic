@@ -1,0 +1,228 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+body{
+    margin-top: 0%;
+    margin: 0%;
+    background-color: white;
+}
+header{
+    background-color: black;
+    height: 2.5cm;
+    margin: 0%;
+}
+header img{
+    padding-top: 10px;
+    float: left;
+    height: 2cm;
+    width: 2cm;
+}
+header h1{
+    padding-top: 10px;
+    margin: 0%;
+    position: relative;
+    top: 0.5cm;
+    left: 0.1cm;
+    font-family: 'Lobster', cursive;
+    color: white;
+    font-weight: lighter;
+}
+.right{
+    position: relative;
+    float: right;
+    top:-0.85cm;
+}
+.main{
+    margin-top: 20px;
+    background-image: url('wallpaper.jpg');
+    background-color: whitesmoke;
+    background-repeat: no-repeat;
+    background-size: 50%;
+    height: 12cm;
+    width: 22cm;
+    position: absolute;
+    left: 50%;
+    top: 55%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+    /* background: rgba( 255, 254, 254, 0.05 ); */
+    box-shadow: 0 16px 64px 0 rgba(0, 0, 5, 0.37);
+    backdrop-filter: blur( 6px );
+    -webkit-backdrop-filter: blur( 6px );
+    border-radius: 50px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+.main img{
+    margin: 0%;
+    height: 12cm;
+    width: 11cm;
+}
+.left-main{
+    text-align: center;
+    float: right;
+    width: 50%;
+}
+.input-container{
+    margin-left: 12.5%;
+    width: 70%;
+    position:relative;
+    margin-top: 0px;
+	margin-bottom:40px;
+}
+.input-container label{
+    font-weight: bolder;
+	position:absolute;
+	top:6px;
+	left:25%;
+	font-size: 20px;
+    color:white;
+    padding-bottom: 25px;
+    pointer-events:none;
+	transition: all 0.5s ease-in-out;
+}
+.input-container input{
+    border-radius: 20px;
+    border:2px solid white;  
+    background:transparent;
+    width:100%;
+    padding:8px 0 5px 0;
+    font-size:16px;
+    color:white;
+    transition: 0.5s;
+}
+.input-container input:focus{ 
+    border:none;	
+    outline:none;
+    border-radius: 0%;
+    border-bottom:3px solid #e74c3c;
+}
+.input-container input:valid{
+    border:none;	
+    outline:none;
+    border-radius: 0%;
+    border-bottom:3px solid green;
+}
+.input-container input:focus ~ label{
+	text-align: center;
+    top:-12px;
+	font-size:20px;
+	color: #e74c3c;
+	left:0px;
+}
+.input-container input:valid ~ label{
+    text-align: center;
+    top:-15px;
+	font-size:20px;
+	color: green;
+	left:0px;
+}
+.form-box{
+    overflow: hidden;
+}
+.buttons{
+    background-color: white;
+    color: black;
+    width: 220px;
+    margin: 35px auto;
+    position: relative;
+    box-shadow: 0 0 20px 9px #ff61241f;
+    border-radius: 30px;
+}
+.tog-button{
+    background-color: white;
+    color: black;
+    padding: 10px 30px;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    outline: none;
+    position: relative;
+}
+#btn{
+    top: 0px;
+    /* left: 0px; */
+    position:absolute;
+    width: 110px;
+    height: 100%;
+    background: linear-gradient(to right,#ff105f,#ffad06);
+    border-radius: 30px;
+    transition: .5s;
+}
+#btn1{
+    top: 0px;
+    left: 110px;
+    position:absolute;
+    width: 110px;
+    height: 100%;
+    background: linear-gradient(to right,#ffad06,#ff105f);
+    border-radius: 30px;
+    transition: .5s;
+    display: none;
+}
+.input-group{
+    top: 120px;
+    position: absolute;
+    width: 280px;
+    transition: 0.5s;
+}
+#login{
+    left:500px;
+}
+#register{
+    left:500px;
+    display: none;
+}
+/* #Submit{
+    height: 1cm;
+    width: 2.5cm;
+    border-radius: 20px;
+}
+#Submit:hover{
+    background-color: #e74c3c;
+} */
+#Submit {
+    display: inline-block;
+    padding: .75rem 1.25rem;
+    border-radius: 10rem;
+    height: 1cm;
+    width: 3cm;
+    font-weight: bolder;
+    color: #e74c3c;
+    text-transform: uppercase;
+    font-size: 1rem;
+    transition: ease-in-out .3s;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+#Submit:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: whitesmoke;
+    border-radius : 10rem;
+    z-index: -2;
+}
+
+#Submit:before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background-color: darken(gray, 15%);
+    transition: ease-in-out 2s;
+    border-radius: 10rem;
+    z-index: -1;
+}
+
+#Submit:hover {
+    color: #fff;
+    background-image: none !important;
+    background-color: #e74c3c !important;
+}
+#Submit:before {
+    width: 100%;
+}

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../static/style.css">
+
+    <title>Document</title>
+</head>
+<body>
+    <header style="background-color: black;">
+        <div class="left">
+            <img src="ear.png">
+            <h1>Voice-O-Pic</h1>
+        </div>
+        <div class="right">
+            <button>about us</button>
+            <button>contact us</button>
+        </div>
+    </header>
+    <div class="main" style="background-color: black;">
+        <div class="left-main">
+            <div class="form-box">
+                <div class="buttons">
+                    <div id="btn"></div>
+                    <div id="btn1"></div>
+                    <button type="button" class="tog-button" onclick="login()">Log In</button>
+                    <button type="button" class="tog-button" onclick="register()">Register</button>
+                </div>
+                <form action="{{url_for('login')}}" id="login" class="input-group" method="POST" style="margin-top: 30px;">
+                    <div class="input-container">
+                        <input type="text" name="uname" id="uname" required=""><label>Username</label>
+                    </div>
+                    <div class="input-container">
+                        <input type="password" name="pass" id="pass" required=""><label>Password</label>
+                    </div>
+                    <div>
+                        <input type="submit" name="loginbut" id="Submit">
+                    </div>
+                    <p style="color: white;"><strong>{{message}}</strong></p>
+                </form>
+                <form action="{{url_for('register')}}" id="register" class="input-group" method="POST">
+                    <div class="input-container">
+                        <input type="text" name="uname" id="uname" required=""><label>Name</label>
+                    </div>
+                    <div class="input-container">
+                        <input type="text" name="email" id="email" required=""><label>email</label>
+                    </div>
+                    <div class="input-container">
+                        <input type="text" name="phone" id="phone" required=""><label>phone</label>
+                    </div>
+                    <div class="input-container">
+                        <input type="password" name="pass" id="pass" required=""><label>password</label>
+                    </div>
+                    <div>
+                        <input type="submit" name="regis" id="Submit">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <form method="post">
+        <button type="submit" formaction="{{ url_for('addprodpage') }}"></button>
+    </form>
+    <script>
+        var x = document.getElementById("login");
+        var y = document.getElementById("register");
+        var z = document.getElementById("btn");
+        var a = document.getElementById("btn1");
+        function login(){
+            x.style.display = "block";
+            y.style.display = "none";
+            z.style.display = "block";
+            a.style.display = "none";
+        }
+        function register(){
+            x.style.display = "none";
+            y.style.display = "block";
+            z.style.display = "none";
+            a.style.display = "block";
+        }
+    </script>
+</body>
+</html>

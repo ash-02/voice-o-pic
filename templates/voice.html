@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <link rel="stylesheet" href="../static/voice.css">
+    </head>
+<body>
+    <div class="container">
+        <form method="post" class="child">
+            <div class="input-container">
+                <input type="text" id="speech" name="speech" placeholder="Speak Something" onclick="record()"><label>Speech Recognition</label>
+            </div>
+            <div class="buttons">
+                <button type="submit" formaction="{{ url_for('word_by_word') }}">Send each<br>word</button>
+                <button type="submit" formaction="{{ url_for('whole_word') }}">Send whole<br>sentence</button>
+            </div>
+            <!-- <div class="main-buttons">
+                <div class="buttons">
+                    <button type="submit" formaction="{{ url_for('word_by_word') }}">Send each word</button>
+                </div>
+                <div class="buttons">
+                    <button type="submit" formaction="{{ url_for('whole_word') }}">Send whole sentence</button>
+                </div>
+            </div> -->
+        </form>
+    </div>
+
+    <script>
+        function record(){
+
+            var recog = new webkitSpeechRecognition();
+            recog.lang="en-GB";
+
+            recog.onresult=function(event){
+                document.getElementById('speech').value=event.results[0][0].transcript;
+            }
+            recog.start();
+
+            let text = event.results[0][0].transcript;
+            const request = new XMLHttpRequest()
+            request.open('POST','/result')
+            request.onload= () => {
+                const flaskMessage = request.responseText
+                console.log(flaskMessage)
+            }
+            request.send()
+        }
+    </script>
+
+</body>
+</html>
