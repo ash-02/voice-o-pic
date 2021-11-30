@@ -1,0 +1,46 @@
+body{
+    background: #C33764;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #1D2671, #C33764);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #1D2671, #C33764); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.acts{
+    display: inline-flex;
+    background-color: black;
+    height: 7cm;
+    width: 20cm;
+    margin-left: 10cm;
+    background: rgba( 255, 255, 255, 0.25 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 40px;
+}
+.acts div:first-child{
+    margin-left: 2.45cm;
+}
+.acts div{
+    border-radius: 30px;
+    font-size: smaller;
+    text-align: center;
+    height: 5cm;
+    width: 5cm;
+    margin: 20px 20px 20px 20px;
+    background-color: white;
+    transition: 0.5s;
+}
+.acts img{
+    margin-top: 10px;
+    height: 3cm;
+}
+.acts ul{
+    display: inline-flex;
+    list-style: none;
+}
+.acts button{
+    background-color: transparent;
+    border:none;
+    outline: none;
+}
+.acts div:hover{
+    box-shadow: 0 4px 8px 0 rgb(255, 255, 255), 0 6px 20px 0 rgb(255, 255, 255);
+}

@@ -18,7 +18,10 @@ from flask import Flask,jsonify,request
 from flask import render_template
 from flask.json import jsonify
 from nltk.util import pr
-from pymongo import message
+# from pymongo import message
+from flask import flask_pymongo as fp
+# from fp import PyMongo
+import gridfs
 import process1
 import pymongo
 
@@ -26,7 +29,9 @@ app = Flask(__name__)
 
 client = pymongo.MongoClient("mongodb+srv://root:root@cluster0.aq5jb.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
 db = client.get_database('mongodata')
-
+# mongo = pymongo.PyMongo(app)
+mongo = fp.PyMongo(app)
+fs = gridfs.GridFS(mongo.db)
 
 # @app.route('/',methods = ['GET', 'POST'])
 # def home():  # put application's code here
@@ -119,6 +124,19 @@ def whole_word():
 def addprodpage():
     return render_template('/admin/addprod.html')
 
+# @app.route('/addprod',methods = ['POST','GET'])
+# def addprod():
+#     records=db.products
+#     prodname=request.form['pname']
+#     compname=request.form['cname']
+#     price=request.form['price']
+#     desc=request.form['description']
+#     prodimage=request.form['prodimage']
+
+#     prod_input={'pname':prodname,'cname':compname,'price':price,'description':desc,'image':prodimage}
+#     records.insert_one(prod_input)
+#     return render_template('/admin/addprod.html')
+
 @app.route('/addprod',methods = ['POST','GET'])
 def addprod():
     records=db.products
@@ -126,17 +144,30 @@ def addprod():
     compname=request.form['cname']
     price=request.form['price']
     desc=request.form['description']
-    prodimage=request.form['prodimage']
+    prodimage = request.form['prodimage']
+    if 'prodimage' in request.files:
+        prodimageName=request.files['prodimage']
+        fss = gridfs.GridFS(db)
+        fss.put(prodimageName,filename=prodimageName.filename)
+        # return render_template('admin.html')
 
-    prod_input={'pname':prodname,'cname':compname,'price':price,'description':desc,'image':prodimage}
-    records.insert_one(prod_input)
+    # prod_input={'pname':prodname,'cname':compname,'price':price,'description':desc,'image':prodimage}
+    # records.insert_one(prod_input)
     return render_template('/admin/addprod.html')
+@app.route('/file/<filename>')
+def file(filename):
+    return mongo.send_file(filename)
 
 @app.route('/prodshow',methods = ['POST','GET'])
 def prodshow():
     records=db.products
     products=records.find()
-    return render_template('products.html',products=records.find(),min=products.sort("price", -1).limit(1),max=products.sort("price", 1).limit(1))
+
+    data = db.fs.files.find()
+    # my_id = data['_id']
+    # outputdata = fs.get(my_id).read()
+
+    return render_template('products.html',products=records.find(),min=products.sort("price", -1).limit(1),max=products.sort("price", 1).limit(1),img=data)
 
 if __name__ == '__main__':
     app.run(debug=True, use_reloader=False)
