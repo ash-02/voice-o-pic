@@ -19,8 +19,9 @@ from flask import render_template
 from flask.json import jsonify
 from nltk.util import pr
 # from pymongo import message
-from flask import flask_pymongo as fp
+# from flask import flask_pymongo as fp
 # from fp import PyMongo
+from flask_pymongo import PyMongo
 import gridfs
 import process1
 import pymongo
@@ -30,7 +31,8 @@ app = Flask(__name__)
 client = pymongo.MongoClient("mongodb+srv://root:root@cluster0.aq5jb.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
 db = client.get_database('mongodata')
 # mongo = pymongo.PyMongo(app)
-mongo = fp.PyMongo(app)
+app.config["MONGO_URI"]="mongodb+srv://root:root@cluster0.aq5jb.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+mongo = PyMongo(app)
 fs = gridfs.GridFS(mongo.db)
 
 # @app.route('/',methods = ['GET', 'POST'])
@@ -144,7 +146,7 @@ def addprod():
     compname=request.form['cname']
     price=request.form['price']
     desc=request.form['description']
-    prodimage = request.form['prodimage']
+    prodimage = request.files['prodimage']
     if 'prodimage' in request.files:
         prodimageName=request.files['prodimage']
         fss = gridfs.GridFS(db)
