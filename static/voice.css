@@ -1,8 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
 html{
     background-image: linear-gradient(#9198e5,#e66465);
     background-repeat: no-repeat;
     height: 20.9cm;
+}
+header{
+    font-family: 'Lobster', cursive;
+    text-align: left;
 }
 body{
     font-family: 'Acme', sans-serif;
@@ -14,7 +19,7 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 15%;
+    margin-top: 12%;
     margin-left: -80px;
 }
 .input-container{

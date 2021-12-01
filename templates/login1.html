@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../static/style1.css">
+<!-- {#    <link rel="script" href="/static/scripts.js">#} -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+
+
+</head>
+<body>
+    <header>
+        <div class="mainicon">
+            <img src="../static/ear.png" style="height: 2cm;">
+            <h1 style="margin-top: 25px; margin-left: 0%;left:0.2cm">Voice-O-Pic</h1>
+            <button id="adminbutt" type="button" style="margin-left: 30cm;" onclick="admin()">admin login</button>
+            <button id="loginbutt" type="button" style="margin-left: 30cm;" onclick="login()">user login</button>
+        </div>
+    </header>
+
+<section style="top: 2cm;">
+        <div class="color"></div>
+        <div class="color"></div>
+        <div class="color"></div>
+        <div class="box">
+            <div class="square" style="--i:0;"></div>
+            <div class="square" style="--i:1;"></div>
+            <div class="square" style="--i:2;"></div>
+            <div class="square" style="--i:3;"></div>
+            <div class="square" style="--i:4;"></div>
+            <div class="container">
+                <div class="form">
+                    <!-- <h2>Upload Your Image</h2> -->
+                    <div class="buttons" id="buttons">
+                        <div id="btn"></div>
+                        <div id="btn1"></div>
+                        <button type="button" class="tog-button" onclick="login()">Log In</button>
+                        <button type="button" class="tog-button" onclick="register()">Register</button>
+                    </div>
+                    <form action="{{url_for('login')}}" id="login" class="input-group" method="POST" style="margin-top: 30px;">
+                        <div class="input-container">
+                            <input type="text" name="uname" id="uname" required=""><label>Username</label>
+                        </div>
+                        <div class="input-container">
+                            <input type="password" name="pass" id="pass" required=""><label>Password</label>
+                        </div>
+                        <div>
+                            <input type="submit" name="loginbut" id="Submit">
+                        </div>
+                        <p style="color: white;"><strong>{{message}}</strong></p>
+                    </form>
+                    <form action="{{url_for('register')}}" id="register" class="input-group" method="POST">
+                        <div class="input-container">
+                            <input type="text" name="uname" id="uname" required=""><label>Name</label>
+                        </div>
+                        <div class="input-container">
+                            <input type="text" name="email" id="email" required=""><label>email</label>
+                        </div>
+                        <div class="input-container">
+                            <input type="text" name="phone" id="phone" required=""><label>phone</label>
+                        </div>
+                        <div class="input-container">
+                            <input type="password" name="pass" id="pass" required=""><label>password</label>
+                        </div>
+                        <div>
+                            <input type="submit" name="regis" id="Submit">
+                        </div>
+                    </form>
+                    <form action="{{url_for('admin')}}" id="admin" class="input-group" method="POST">
+                        <h2>Admin Login</h2>
+                        <div class="input-container">
+                            <input type="text" name="auname" id="auname" required=""><label>UserName</label>
+                        </div>
+                        <div class="input-container">
+                            <input type="password" name="apass" id="apass" required=""><label>password</label>
+                        </div>
+                        <div>
+                            <input type="submit" name="regis" id="Submit">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <ul class="mainn">
+            <li>
+                <h1 class="foo">sign up for emails</h1>
+                <p>Receive our latest news and offers!</p>
+                <input type="text" placeholder="enter email here" style="margin-bottom: 10px;">
+            </li>
+            <li>
+                <h1>do follow us on</h1>
+                <div class="socialbuttons" style="margin-left: 30px;">
+                    <a class="btn btn-primary" style="background-color: #3b5998" href="#!" role="button"><i class="fab fa-facebook-f"></i></a> 
+                    <a class="btn btn-primary" style="background-color: #55acee" href="#!" role="button"><i class="fab fa-twitter"></i></a>
+                    <a class="btn btn-primary" style="background-color: rgb(188, 42, 141)" href="#!" role="button"><i class="fab fa-instagram"></i></a>
+                    <a class="btn btn-primary" style="background-color: #ed302f" href="#!" role="button"><i class="fab fa-youtube"></i></a>
+
+                </div>
+            </li>
+            <li>
+                <ul style="list-style-type: none;" class="last">
+                    <li style="margin-bottom: 5px;"><a role="button">About</a></li>
+                    <li style="margin-bottom: 5px;"><a role="button">Careers</a></li>
+                    <li style="margin-bottom: 5px;"><a role="button">Help</a></li>
+                </ul>
+            </li>
+        </ul>
+    </footer>
+    <script>
+        var x = document.getElementById("login");
+        var y = document.getElementById("register");
+        var z = document.getElementById("btn");
+        var a = document.getElementById("btn1");
+        var adminn = document.getElementById("admin");
+        var but = document.getElementById("buttons");
+        var adminbut = Document.getElementById("adminbut");
+        var loginbut = Document.getElementById("loginbut");
+        function login(){
+            x.style.display = "block";
+            y.style.display = "none";
+            z.style.display = "block";
+            a.style.display = "none";
+            adminn.style.display = "none";
+            buttons.style.display = "block";
+            adminbut.style.display = "block";
+
+        }
+        function register(){
+            x.style.display = "none";
+            y.style.display = "block";
+            z.style.display = "none";
+            a.style.display = "block";
+            buttons.style.display = "block";
+        }
+        function admin(){
+            x.style.display = "none";
+            y.style.display = "none";
+            z.style.display = "none";
+            a.style.display = "none";
+            but.style.display = "none";
+            adminn.style.display = "block";
+            loginbut.style.display = "block";
+            adminbut.style.display = "none";
+        }
+    </script>
+    
+</body>
+</html>

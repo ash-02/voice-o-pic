@@ -45,23 +45,37 @@
     ?> -->
 
     <header>
-        <div class="mainicon">
+        <div class="mainicon" style="display: inline-flex;">
             <img src="../static/ear.png" style="height: 2cm;">
-            <h1 style="margin-top: 25px; margin-left: 0%;left: 150px;">Voice-O-Pic</h1>
+            <h1 style="margin-top: 20px; margin-left: 10px;left: 170px;color: white;">Voice-O-Pic</h1>
         </div>
     </header>
-
+    <div class="">
+        <h1 style="text-align: center;">
+            PRODUCTS
+        </h1>
+        <a href="to_cart" style="float: right;">
+            <button type="button" style="float:right">Cart</button><sup>{{val}}</sup>
+        </a>
+    </div>
     <!-- <?php
     if(mysqli_num_rows($query_run)>0){
             while($row=mysqli_fetch_assoc($query_run))
             {
     ?> -->
-    <div class="everything">
-        <div class="filters">
+    <div class="everything" style="display: inline-flex;">
+        <!-- <div class="filters">
             <div class="price-filters">
+                <h3>
+                    Price Filters
+                </h3>
                 <div class="">
                     {%for minp in min%}
-                    <input type="number" value="{{minp['price']}}" placeholder="{{minp['price']}}">
+                    <input type="number" style="margin-left: 1.25cm;" value="{{minp['price']}}" placeholder="min : {{minp['price']}}" min="{{minp['price']}}">
+                    {%endfor%}
+                    <br>
+                    {%for maxp in max%}
+                    <input type="number" value="{{maxp['price']}}" placeholder="min : {{maxp['price']}}" max="{{maxp['price']}}">
                     {%endfor%}
                 </div>
                 <div class="">
@@ -69,48 +83,87 @@
                     <input type="number" value="{{minp['price']}}" placeholder="{{minp['price']}}">
                     {%endfor%}
                 </div>
+                <form action="" method="post">
+                    <h1>
+                        aaaa
+                    </h1>
+                </form>
             </div>
-        </div>
-        {%for prod in products%}
-        <div class="" style="display: inline-flex;">
-            <div class="all-details" style="color:white;">
-                <div class="prod-image">
-                    <img src="{url_for('file',filename=prod['image'])}"><br>
-                </div>
-                <div class="text-details">
-                    <h3>
-                        {{prod['cname']}}
-                    <!-- <?php echo $row['company_name'] ?> -->
-                    </h3>
-                    <h2>
-                        {{prod['pname']}}
-                        <!-- <?php echo $row['name'] ?> -->
-                    </h2>
-                    <h2>
-                        ₹ {{prod['price']}}
-                        <!-- PRICE: ₹ <?php echo $row['price'] ?> -->
-                    </h2>
-                    <button class="btn btn-warning my-3" name="add">Add to Cart  <i class="fas fa-shopping-cart"></i></button>
+        </div> -->
+        <div class="filters">
+            <div class="price-filter">
+                <form method="post">
                     <h4>
-                        <ul>
-                            <!-- <?php 
-                                $desc_points = explode(".",$row['description']);
-                                foreach ($desc_points as $points) {
-                                ?>
-                                <li>
-                                    <?php
-                                            echo $points
-                                        ?>
-                                </li>
-                                <?php
-                                }
-                            ?> -->
-                        </ul>
+                        Price Filters
                     </h4>
-                </div>
+                    <input type="number" name="min" id="min" placeholder="{{min}}" value="{{min}}"><br>
+                    <input type="number" name="max" id="max" placeholder="{{max}}" value="{{max}}"><br>
+                    <input type="submit" formaction="pricefilter">
+                </form>
+            </div>
+            <div class="brand-filter">
+                <form method="post" action="brand">
+                    <h4>
+                        brand Filters
+                    </h4>
+                    {%for pro in filter%}
+                    <input type="checkbox" id="brand" name="brand" value="{{pro['cname']}}">
+                    <label for="">{{pro['cname']}}</label><br>
+                    {%endfor%}
+                    <input type="submit">
+                </form>
             </div>
         </div>
-        {%endfor%}
+        <div class="prods" style="margin-left: 2cm;">
+            {%for prod in products%}
+            <div class="" style="display: inline-flex;">
+                <div class="all-details" style="color:white;">
+                    <div class="prod-image">
+                        <img src="../static/prod_images/{{prod['image']}}"><br>
+                    </div>
+                    <div class="text-details">
+                        <h3 style="margin-top: 20px;">
+                            {{prod['cname']}}
+                        <!-- <?php echo $row['company_name'] ?> -->
+                        </h3>
+                        <h2 style="font-size: larger;margin-top: 20px;">
+                            {{prod['pname']}}
+                            <!-- <?php echo $row['name'] ?> -->
+                        </h2>
+                        <h2 style="margin-top: 20px;">
+                            ₹ {{prod['price']}}
+                            <!-- PRICE: ₹ <?php echo $row['price'] ?> -->
+                        </h2>
+                        <form action="{{url_for('addcart')}}" method="post">
+                            <input type="hidden" name="ccname" value="{{prod['cname']}}">
+                            <input type="hidden" name="cpname" value="{{prod['pname']}}">
+                            <input type="hidden" name="cprice" value="{{prod['price']}}">
+                            <input type="hidden" name="cdescription" value="{{prod['description']}}">
+                            <input type="hidden" name="cimage" value="{{prod['image']}}">
+
+                            <button style="margin-top: 20px; display: block;" class="btn btn-warning my-3" name="add">Add to Cart  <i class="fas fa-shopping-cart"></i></button>
+                        </form>
+                        <h4>
+                            <ul>
+                                <!-- <?php 
+                                    $desc_points = explode(".",$row['description']);
+                                    foreach ($desc_points as $points) {
+                                    ?>
+                                    <li>
+                                        <?php
+                                                echo $points
+                                            ?>
+                                    </li>
+                                    <?php
+                                    }
+                                ?> -->
+                            </ul>
+                        </h4>
+                    </div>
+                </div>
+            </div>
+            {%endfor%}
+        </div>
     </div>
 
     <!-- <?php

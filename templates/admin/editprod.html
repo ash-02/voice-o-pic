@@ -77,8 +77,11 @@
 <body>
     <header style="text-align: center;">
         <h1>
-            add product
+            edit product
         </h1>
+        <h3>
+            (Please only edit the fields that needs to be editted)
+        </h3>
     </header>
     <div style="text-align: center; height: auto ;width: 15cm;margin: auto;background: rgba( 255, 255, 255, 0.15 );
     box-shadow: 0 8px 32px 0 rgba(241, 241, 248, 0.767);
@@ -86,24 +89,22 @@
     -webkit-backdrop-filter: blur( 4.0px );
     border-radius: 40px;
     border: 1px solid rgba( 255, 255, 255, 0.18 );">
-        <form method="post">
+        <form method="post" enctype="multipart/form-data">
             <div class="input-container">
-                <input type="text" id="pname" name="pname" maxlength="50"><label>Product NAME</label>
+                <input type="text" id="pname" name="pname" maxlength="50" value="{{prod['pname']}}" placeholder="{{prod['pname']}}"><label>Product NAME</label>
             </div>
             <div class="input-container">
-                <input type="text" id="cname" name="cname" maxlength="50"><label>Company NAME</label>
+                <input type="text" id="cname" name="cname" maxlength="50" value="{{prod['cname']}}" placeholder="{{prod['cname']}}"><label>Company NAME</label>
             </div>
             <div class="input-container">
-                <input type="number" id="price" name="price" maxlength="50"><label>Price</label>
+                <input type="number" id="price" name="price" maxlength="50" value="{{prod['price']}}" placeholder="{{prod['price']}}"><label>Price</label>
             </div>
             <div class="input-container">
-                <input type="text" id="description" name="description" maxlength="1000"><label>Description</label>
+                <input type="text" id="description" name="description" maxlength="100" value="{{prod['description']}}" placeholder="{{prod['description']}}"><label>Description</label>
             </div>
-            <div class="input-container">
-                <input type="file" id="prodimage" name="prodimage" maxlength="50"><label>Product Image</label>
-            </div>
+            <input type="hidden" name="edit_id" value="{{edit}}">
             <div>
-                <button type="submit" name="Submit" id="submit" class="regi" formaction="{{url_for('addprod')}}">SUBMIT</button>
+                <button type="submit" name="Submit" id="submit" class="regi" formaction="{{url_for('edit_prod')}}">SUBMIT</button>
             </div>
         </form>
     </div>

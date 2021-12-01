@@ -1,13 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
 body{
+  margin: 0px 20px 20px 20px;
   background: #30E8BF;  /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, #FF8235, #30E8BF);  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #FF8235, #30E8BF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */  
 }
 header{
+    font-family: 'Lobster', cursive;
     color: white;
 }
 h1{
-    margin-top: 50px;
+    margin-top: 20px;
 }
 .mainicon{
     color: black;
@@ -47,14 +50,17 @@ h6{
 }
 .all-details{
     color: black;
-    margin: 2cm 0cm 0cm 4cm;
+    margin: 2cm 1cm 0cm 0cm;
     background-color: white;
     border-radius: 30px;
-    width: 100%;
+    width: 8cm;
+    height: 12cm;
 }
 .prod-image img{
+  margin-top: 20px;
     margin-left: 65px;
     height: 4cm;
+    width: 4cm;
     border-radius: 30px;
 }
 .text-details{
@@ -70,4 +76,29 @@ h6{
 }
 header h1{
     padding-top: -100px;
+}
+.filters{
+  text-align: center;
+  background: rgba( 255, 255, 255, 0.25 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 4px );
+  -webkit-backdrop-filter: blur( 4px );
+  border-radius: 10px;
+  width: 6cm;
+  height: 20cm;
+  margin-top: 2cm;
+}
+.filters input{
+  margin-top: 10px;
+  border-radius: 10px;
+}
+.price-filter{
+  margin-top: 1cm;
+}
+.brand-filter{
+  margin-top: 1cm;
+  margin-bottom: 1cm;
+}
+.price-filter div input{
+  margin-left: 1cm;
 }
