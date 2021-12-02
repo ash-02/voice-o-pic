@@ -42,6 +42,7 @@ h1{
   font-size: 30px;
   float: right;
   margin-top: 50px;
+  margin-right: 2cm;
 }
 .btn {
     margin-top: 10px;
@@ -98,6 +99,9 @@ h1{
     width: 18%;
     margin-left: -20px;
     align-content: center;
+  }
+  .services img{
+    height: 2cm;
   }
   .buttontext{
     display: block;

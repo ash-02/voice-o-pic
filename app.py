@@ -70,7 +70,7 @@ def register():
     elif records.find_one({"email":email}):
         return render_template('login1.html',message="email already exists")
     elif records.find_one({"phone":phone}):
-        return render_template('login1.html',message="email already exists")
+        return render_template('login1.html',message="phone already exists")
     else:
         user_input = {'username': username, 'email': email, 'phone':phone,'password': password}
         records.insert_one(user_input)
